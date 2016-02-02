@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container">
+    {% if object_list %}
+    {% else %}
+    <a href="" class="btn btn-default btn-lg">{% trans "Add Nelson" %}</a>
+    {% endif %}
+</div>
+{% endblock %}
