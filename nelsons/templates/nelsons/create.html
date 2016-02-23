@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Add a Nelson" %}{% endblock %}
+
+{% block content %}
+<div class="container">
+   {% if error_message %}
+   <div class="alert alert-danger" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span> {{ error_message }}
+      </div>
+   {% endif %}
+
+
+
+   <form class="form-horizontal" action="{% url 'nelsons:create' %}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-info btn-lg">{% block submit_label %}<span class="glyphicon glyphicon-plus-sign"></span> {% trans "Create" %}{% endblock %}</button>
+   </form>
+</div>
+{% endblock %}

@@ -1,0 +1,4 @@
+.btn-lg,
+.btn-group-lg > .btn {
+  border-radius: 30px;
+}

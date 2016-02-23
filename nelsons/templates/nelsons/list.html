@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container">
+   {% for nelson in nelson_list %}
+      <li>{{ nelson.name }} - {{ nelson.edx_user }}</li>
+   {% empty %}
+   <div class="center-block">
+      <div class="col-md-4 text-center">
+         <a href="{% url 'nelsons:create' %}" class="btn btn-info btn-lg" style="margin-top : 32px;"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> {% trans "Add Nelson" %}</a>
+      </div>
+   </div>
+   {% endfor %}
+</div>
+{% endblock %}
