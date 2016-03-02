@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView, CreateView
 
-from rest_framework import generics
+from rest_framework.generics import RetrieveUpdateAPIView
 
 from .models import Nelson
 from .serializers import NelsonSerializer
@@ -19,6 +19,6 @@ class NelsonCreateView(CreateView):
     template_name = 'nelsons/create.html'
     success_url = reverse_lazy('list')
 
-class NelsonDetailView(generics.RetrieveUpdateAPIView):
+class NelsonDetailView(RetrieveUpdateAPIView):
 	queryset = Nelson.objects.all()
 	serializer_class = NelsonSerializer
