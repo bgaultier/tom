@@ -18,7 +18,8 @@ $ python manage.py runserver 0.0.0.0:8000
 
 ## Endpoints
 
-1. First, you have to create a nelson object using the admin : http://localhost:8000/admin/
+1. First, you have to create a nelson object using the admin : http://mycomputer.local/admin/
 2. Log in using the credentials for the super user
 3. Create a Nelson object using the **Add** button
-4. Then go to http://localhost:8000/nelsons/baptiste/ to enjoy the *Browseable API* offred by [Django Rest Framework](http://django-rest-framework.org)
+4. Then go to http://mycomputer.local/nelsons/baptiste/ to enjoy the *Browseable API* offred by [Django Rest Framework](http://django-rest-framework.org)
+5. Here are the Rest verbs available : *GET* (Retrieve), *PUT*, *PATCH* (Update), *DELETE* (Destroy)
