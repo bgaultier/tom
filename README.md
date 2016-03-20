@@ -23,3 +23,5 @@ $ python manage.py runserver 0.0.0.0:8000
 3. Create a Nelson object using the **Add** button
 4. Then go to http://mycomputer.local/nelsons/baptiste/ to enjoy the *Browseable API* offred by [Django Rest Framework](http://django-rest-framework.org)
 5. Here are the Rest verbs available : **GET** (Retrieve), **PUT**, **PATCH** (Update), **DELETE** (Destroy)
+
+![Browseable API](https://raw.githubusercontent.com/bgaultier/tom/master/api.png?token=AAK3FOPlG83qA22ub3YOKcYot7WZq6xmks5W-Ca7wA%3D%3D)
