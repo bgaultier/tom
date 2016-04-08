@@ -7,6 +7,7 @@ It will allow the MOOC students to manipulate Nelson objects using a RESTful API
 2. [Fork this repo](https://help.github.com/articles/fork-a-repo)
 3. Install [Django](https://www.djangoproject.com) and [Django Rest Framework](http://django-rest-framework.org) using pip then start the server :  
 ```
+$ git clone git@github.com:bgaultier/tom.git
 $ cd tom/
 $ sudo apt-get install pip
 $ sudo pip install django djangorestframework
