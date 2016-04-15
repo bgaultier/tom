@@ -18,7 +18,9 @@ class NelsonCreateView(CreateView):
     model = Nelson
     fields = ['name', 'latitude', 'longitude', 'position']
     template_name = 'nelsons/create.html'
-    success_url = reverse_lazy('list')
+
+    def get_success_url(self):
+        return reverse_lazy('nelsons:api', kwargs={'pk': self.object.name})
 
 
 class NelsonDetailView(RetrieveUpdateDestroyAPIView):
