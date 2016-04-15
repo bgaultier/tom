@@ -67,6 +67,7 @@
       var lat = parseFloat(lat_field.value.replace(',', '.'));
       var lon = parseFloat(lon_field.value.replace(',', '.'));
       marker.setLatLng([lat, lon]);
+      map.setView([lat, lon]);
    }
 
 
