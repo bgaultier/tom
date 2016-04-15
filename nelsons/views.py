@@ -22,6 +22,9 @@ class NelsonCreateView(CreateView):
     def get_success_url(self):
         return reverse_lazy('nelsons:api', kwargs={'pk': self.object.name})
 
+    def get_initial(self):
+        return {'name': self.kwargs['name']}
+
 
 class NelsonDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Nelson.objects.all()
