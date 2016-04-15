@@ -1,4 +1,5 @@
 from django.core.urlresolvers import reverse_lazy
+from django.shortcuts import redirect
 from django.views.generic import ListView, CreateView
 
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
@@ -29,3 +30,12 @@ class NelsonCreateView(CreateView):
 class NelsonDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Nelson.objects.all()
     serializer_class = NelsonSerializer
+
+
+def check_existence(request):
+    name = request.POST.get('name')
+    try:
+        nelson = Nelson.objects.get(name=name)
+        return redirect(reverse_lazy('nelsons:api', kwargs={'pk': nelson.name}))
+    except:
+        return redirect(reverse_lazy('nelsons:create', kwargs={'name': name}))
