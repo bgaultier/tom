@@ -50,6 +50,13 @@
       var position = marker.getLatLng();
       lat_field.value = position.lat.toFixed(6);
       lon_field.value = position.lng.toFixed(6);
+   });
+
+   map.on('click', function(event) {
+      var position = event.latlng;
+      lat_field.value = position.lat.toFixed(6);
+      lon_field.value = position.lng.toFixed(6);
+      marker.setLatLng(position);
     });
 
    lat_field.addEventListener("input", updateMarker, false);
