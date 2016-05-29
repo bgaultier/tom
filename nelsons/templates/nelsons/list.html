@@ -18,12 +18,12 @@
    <form class="form-horizontal" action="{% url 'nelsons:check' %}" method="post">
       {% csrf_token %}
       <input type="text" name="name" placeholder="Nelson à utiliser ou créer">
-      <button type="submit" class="btn btn-info btn-lg">{% block submit_label %}<span class="glyphicon glyphicon-plus-sign"></span> {% trans "Create" %}{% endblock %}</button>
+      <button type="submit" class="btn btn-primary btn-lg">{% block submit_label %}<span class="glyphicon glyphicon-plus-sign"></span> {% trans "Créer" %}{% endblock %}</button>
    </form>
 
     <hr>
 
-    <h1>{{ nelson_list.count }} {% trans "nelsons sont déjà enregistré, pourquoi pas le vôtre !?" %}</h1>
+    <h1>{{ nelson_list.count }} {% trans "Nelsons sont déjà enregistrés, pourquoi pas le vôtre !?" %}</h1>
 
     <div id="mapid" style="width:100%;height: 800px;"></div>
 </div>
