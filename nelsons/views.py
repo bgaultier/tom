@@ -31,6 +31,13 @@ class NelsonDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Nelson.objects.all()
     serializer_class = NelsonSerializer
 
+    def perform_update(self, serializer):
+        get_position = self.request.GET.get('position')
+        if get_position:
+            serializer.save(position=int(get_position))
+        else:
+            serializer.save()
+
 
 def check_existence(request):
     name = request.POST.get('name')
