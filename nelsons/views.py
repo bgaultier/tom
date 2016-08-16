@@ -3,6 +3,8 @@ from django.shortcuts import redirect
 from django.views.generic import ListView, CreateView
 
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
+from rest_framework.renderers import BrowsableAPIRenderer
+from rest_framework_jsonp.renderers import JSONPRenderer
 
 from .models import Nelson
 from .serializers import NelsonSerializer
@@ -30,6 +32,8 @@ class NelsonCreateView(CreateView):
 class NelsonDetailView(RetrieveUpdateDestroyAPIView):
     queryset = Nelson.objects.all()
     serializer_class = NelsonSerializer
+
+    renderer_classes = (BrowsableAPIRenderer, JSONPRenderer,)
 
     def perform_update(self, serializer):
         get_position = self.request.GET.get('position')
