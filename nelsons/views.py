@@ -1,5 +1,5 @@
 from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.views.generic import ListView, CreateView
 
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
@@ -34,6 +34,14 @@ class NelsonDetailView(RetrieveUpdateDestroyAPIView):
     serializer_class = NelsonSerializer
 
     renderer_classes = (BrowsableAPIRenderer, JSONPRenderer,)
+
+    def get(self, request, *args, **kwargs):
+        get_position = self.request.GET.get('position')
+        if get_position:
+            nelson = get_object_or_404(Nelson, pk=self.kwargs.get('pk'))
+            nelson.position = int(get_position)
+            nelson.save()
+        return self.retrieve(request, *args, **kwargs)
 
     def perform_update(self, serializer):
         get_position = self.request.GET.get('position')
